@@ -1,0 +1,47 @@
+
+version: "3.8"
+services:
+  backend-app:
+    restart: always
+    build: .
+    env_file:
+      - ./env/local.env
+    ports:
+      - "8000:8000"
+    networks:
+      - backend-network
+
+  backend-db:
+    restart: always
+    image: postgres:14
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file:
+      - ./env/local.env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    networks:
+      - backend-network
+    ports:
+      - "5432:5432"
+
+
+  backend-redis:
+    restart: always
+    image: redis:6.2.6
+    volumes:
+      - redis_data:/data
+    networks:
+      - backend-network
+    ports:
+      - "6377:6379"
+
+
+volumes:
+  db_data:
+  redis_data:
+    driver: local
+
+networks:
+  backend-network:
+    driver: bridge
