@@ -20,6 +20,7 @@ services:
       - ./env/local.env
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
+      - HOSTNAME=backend-db
     networks:
       - backend-network
     ports:

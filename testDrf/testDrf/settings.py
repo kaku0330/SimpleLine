@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import socket
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hfn86q8paho%b9vd2s1#e&+tw3&k3lqukndwpm3m&t)nz=l59s'
+SECRET_KEY = 'django-insecure-c@^x#!hirm$@35x^9ot-2y&w5@#rzu3*8yl5s8l@ypmo)^--d2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'testDrfApp',
+    'testDrfapp'
 ]
 
 MIDDLEWARE = [
@@ -81,11 +81,10 @@ DATABASES = {
         'NAME': 'backend',
         'USER': 'admin',
         'PASSWORD': 'admin',
-        'HOST': '673ab27a146e',
+        'HOST': 'backend-db',
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
