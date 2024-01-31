@@ -19,5 +19,5 @@ from django.urls import path
 from users.views import UsersViewSet
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/users',UsersViewSet)
+    path('api/users',UsersViewSet.as_view({'get':'list','post':'create','put':'update','delete':'destroy'}))
 ]
