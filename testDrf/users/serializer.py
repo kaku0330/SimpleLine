@@ -7,5 +7,16 @@ from .models import user
 
 class CreateUsersModelSerializers(serializers.ModelSerializer):
     class Meta:
-        fields = "__all__"
         model=user
+        fields = ('username','password')
+
+    # def create(self,POSTdata):
+
+    #     create_user = user(
+    #         username=POSTdata['username'],
+    #         password=POSTdata['password']
+    #     )
+
+    #     create_user.save()
+
+    #     return create_user

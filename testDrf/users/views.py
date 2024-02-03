@@ -6,6 +6,11 @@ from .models import user
 
 class UsersViewSet(viewsets.ModelViewSet):
     queryset = user.objects.all()
-    base_serializer_class = CreateUsersModelSerializers
-    def get_serializer_class(self):
-        return CreateUsersModelSerializers
+    serializer_class = CreateUsersModelSerializers
+
+    # def get_serializer_class(self):
+    #     if self.action == 'list':
+    #         return user.objects.all()
+    #     if self.action == 'create':
+    #         return CreateUsersModelSerializers
+        
