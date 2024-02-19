@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-#hello
+from users.views import UsersViewSet
+from drf_spectacular.views import SpectacularSwaggerView,SpectacularAPIView,SpectacularRedocView
 urlpatterns = [
     path('admin/', admin.site.urls),
+        # YOUR PATTERNS
+    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Optional UI:
+    path('schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+
+    path('api/users',UsersViewSet.as_view({'get':'list','post':'create','put':'update','delete':'destroy'}))
 ]
