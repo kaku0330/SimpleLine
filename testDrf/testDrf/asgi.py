@@ -15,5 +15,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testDrf.settings')
 
 # application = get_asgi_application()
 application = ProtocolTypeRouter({
-    "http":get_asgi_application
+    "http":get_asgi_application,
 })
