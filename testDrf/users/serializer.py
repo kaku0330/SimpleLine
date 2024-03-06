@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import user
+from .models import User
 
 # class CreateUsersSerializers(serializers.Serializer):
 #     user = serializers.CharField()
@@ -7,7 +7,7 @@ from .models import user
 
 class CreateUserModelSerializers(serializers.ModelSerializer):
     class Meta:
-        model=user
+        model=User
         fields = ('username','password')
 
     # def create(self,POSTdata):

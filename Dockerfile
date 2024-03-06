@@ -12,4 +12,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 WORKDIR testDrf
 
 # CMD ["python3","manage.py","runserver","0.0.0.0:8000"]
-CMD ["gunicorn","--bind","0.0.0.0:8000","testDrf.wsgi"]
+CMD ["python3","-m","uvicorn","testDrf.asgi:application","--host","0.0.0.0","--port","8000","--reload","--workers","2"]
